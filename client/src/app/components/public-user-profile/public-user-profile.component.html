@@ -1,0 +1,14 @@
+<h3 class="page-header">User Profile</h3>
+
+<div class="row show-hide-message">
+  <div [ngClass]="messageClass">
+      {{message}}
+  </div>
+</div>
+
+<ul *ngIf ="foundUser"class="list-group">
+  <!-- Username -->
+  <li class="list-group-item"><strong>Username: </strong>{{ user?.username }}</li>
+  <!-- E-Mail -->
+  <li class="list-group-item"><strong>E-Mail: </strong>{{ user?.email }}</li>
+</ul>

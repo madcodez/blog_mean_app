@@ -1,0 +1,28 @@
+<h2 class="page-header">
+  Verify to Login 
+</h2>
+
+
+<div class="row show-hide-message">
+  <div [ngClass] = "messageClass" >
+    <p>{{message}}</p>
+  </div>
+
+</div>
+
+<form [formGroup] ="form" (submit) = "tokenSubmit()">
+  <div class="form-group">
+     <label for="token">Verify</label>  
+     <div [ngClass]="{'has-error' : form.controls.token.errors && form.controls.token.dirty,'has-success': form.controls.token.valid && !form.controls.token.errors}">
+       <input type ="text" class="form-control" name="token" placeholder="Paste your token" formControlName ="token" style="width : 50%">
+       <ul class="help-block">
+          <li *ngIf="form.controls.token.errors?.required && form.controls.token.dirty">Token is required</li>
+     
+        
+       </ul>
+     </div>
+  </div> 
+
+  
+   <input [disabled]="!form.valid " class="btn btn-primary" type="submit" value="Submit"  />
+</form> 

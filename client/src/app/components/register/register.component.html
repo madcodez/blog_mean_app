@@ -1,0 +1,60 @@
+<h1 class="page-header">Register Page</h1>
+
+<div class="row show-hide-message ">
+  <div [ngClass]="messageClass">
+    {{ message }}
+  </div>
+</div>
+<form [formGroup] ="form" (submit)="onRegister()">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <div [ngClass]="{'has-error': (form.controls.username.errors && form.controls.username.dirty)||(!usernameValid && form.controls.username.dirty) ,'has-success': !form.controls.username.errors}">
+      <input type ="text" name = "username" placeholder="Username" class="form-control" autocomplete= "off" formControlName = "username" (blur)="checkUsername()">
+      <ul class="help-block">
+        <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">This field is required</li>
+        <li *ngIf="(form.controls.username.errors?.minlength && form.controls.username.dirty)||(form.controls.username.errors?.maxlength && form.controls.username.dirty)">Minimum characters: 3, Maximum characters: 15</li>
+        <li *ngIf="form.controls.username.errors?.validateUsername && form.controls.username.dirty">Username must not have any special characters</li>
+        <li *ngIf="usernameMessage">{{usernameMessage}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="form-group">
+      <label for="Email">Email</label>
+      <div [ngClass]="{'has-error': (form.controls.email.errors && form.controls.email.dirty) ||(!emailValid && form.controls.email.dirty),'has-success': !form.controls.email.errors}">
+        <input type ="text" name = "email" placeholder="Email" class="form-control" autocomplete= "off" formControlName = "email" (blur)="checkEmail()">
+        <ul class="help-block">
+          <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">This field is required</li>
+          <li *ngIf="(form.controls.email.errors?.minlength && form.controls.email.dirty)||(form.controls.email.errors?.maxlength && form.controls.email.dirty)">Minimum characters: 5, Maximum characters: 30</li>
+          <li *ngIf="form.controls.email.errors?.validateEmail && form.controls.email.dirty">This must be a valid e-mail</li>
+          <li *ngIf="emailMessage">{{emailMessage}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <div [ngClass]="{'has-error': (form.controls.password.errors && form.controls.password.dirty) ,'has-success': !form.controls.password.errors}">
+          <input type ="text" name = "password" placeholder="Password" class="form-control" autocomplete= "off" formControlName = "password">
+          <ul class="help-block">
+            <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">This field is required</li>
+            <li *ngIf="(form.controls.password.errors?.minlength && form.controls.password.dirty)||(form.controls.password.errors?.maxlength && form.controls.password.dirty)">Minimum characters: 8, Maximum characters: 35</li>
+            <li *ngIf="form.controls.password.errors?.validatePassword && form.controls.password.dirty">Password must be atleast be a 8 characters but no more than 35</li>
+          </ul>
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="cpassword">Confirm Password</label>
+          <div [ngClass]="{'has-error': (form.controls.cpassword.errors && form.controls.cpassword.dirty || form.errors?.matchingPassword && form.controls.cpassword.dirty),'has-success' : !form.controls.cpassword.errors && !form.errors?.matchingPassword }">
+            <input type ="text" name = "cpassword" placeholder="Confirm Password" class="form-control" autocomplete= "off" formControlName = "cpassword">
+            <ul class="help-block">
+              <li *ngIf="form.controls.cpassword.errors?.required && form.controls.cpassword.dirty">This field is required</li>
+            
+              <li *ngIf="form.errors?.matchingPassword && form.controls.cpassword.dirty">Password do not match</li>
+            </ul>
+          </div>
+        </div>
+
+        <input [disabled]="!form.valid || processing || !emailValid || !usernameValid" type="submit" class="btn btn-primary" value="Submit" />
+        
+ 
+
+</form>

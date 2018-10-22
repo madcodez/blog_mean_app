@@ -1,0 +1,36 @@
+{
+  "name": "blog_post",
+  "version": "1.0.0",
+  "description": "blog-post with angular 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madcodez/MEAN_blog_post.git"
+  },
+  "keywords": [
+    "MEAN",
+    "stacjj",
+    "ang",
+    "app\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001bk\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C"
+  ],
+  "author": "madcode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madcodez/MEAN_blog_post/issues"
+  },
+  "homepage": "https://github.com/madcodez/MEAN_blog_post#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "googleapis": "^34.0.0",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.0.13",
+    "nodemailer": "^4.6.8",
+    "randomstring": "^1.1.5"
+  }
+}
